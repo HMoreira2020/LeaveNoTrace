@@ -8,8 +8,6 @@ if ActiveRecord::Base.connection.migration_context.needs_migration?
   
   use Rack::MethodOverride
   use SessionsController
-  use UsersController 
-  use HikesController
   run ApplicationController 
  
   
