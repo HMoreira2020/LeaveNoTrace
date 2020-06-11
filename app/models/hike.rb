@@ -1,3 +1,3 @@
-class Hike < ActiveRecord::Base 
-    belongs_to :user 
-end 
+# class Hike < ActiveRecord::Base 
+#     belongs_to :user 
+# end 
