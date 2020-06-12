@@ -1,6 +1,7 @@
 Hike index has a list of all hikes with links to each hike show page and each user that created that hike
 
 <%@hikes.each do |hike|%>
+    <%=hike.name%>
     <%=hike.user.trailname%>
     <%=hike.description%>
     <%=hike.difficulty%>
