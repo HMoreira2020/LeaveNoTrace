@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
     post '/signup' do 
         if params[:trailname].empty? || params[:email].empty? || params[:password].empty?
-            flash[:message] = "All fields are required"
+            # flash[:message] = "All fields are required"
             redirect to '/signup'
         else
             @user = User.create(params)
