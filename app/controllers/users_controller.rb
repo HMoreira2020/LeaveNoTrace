@@ -14,4 +14,14 @@ class UsersController < ApplicationController
             redirect to '/login'
         end
     end 
+
+    get '/users/:slug' do 
+        @user = User.find_by(username: params[:slug])
+        @hikes = @user.hikes
+        erb :'/users/show_user'
+    end 
+
+    get '/users' do 
+        erb :'users/users_index'
+    end 
 end 
