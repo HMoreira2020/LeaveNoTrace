@@ -1,0 +1,18 @@
+<h1>Welcome, <a href="/users/<%= current_user.trailname %>"><%= current_user.trailname %></a></h1>
+<h2>Log a Hike</h2>
+
+
+  <form action='/hikes' method="post">
+    Description:
+    <input type="text" name="description" id="description"><br>
+    Difficulty:
+    <input type="text" name="difficulty" id="difficulty"><br>
+    Rating:
+    <input type="text" name="rating" id="rating"><br>
+    Tips:
+    <input type="text" name="tips" id="tips"><br>
+    
+    <input type="submit" id="submit">Log Hike</input>
+
+  </form>
+

@@ -1,4 +1,14 @@
 Hike index has a list of all hikes with links to each hike show page and each user that created that hike
+
+<%@hikes.each do |hike|%>
+    <%=hike.user.trailname%>
+    <%=hike.description%>
+    <%=hike.difficulty%>
+    <%=hike.rating%>
+    <%=hike.tips%>
+    # <%=hike.images%>
+<%end%> 
+
 <form action='/logout' method="get">
 <input type="submit" value="Log Out">
 </form><br><br>
