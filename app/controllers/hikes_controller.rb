@@ -17,6 +17,7 @@ class HikesController < ApplicationController
         @hike = current_user.hikes.build(params)
         @hike.save 
         @hikes = Hike.all
+        erb :'hikes/hikes_index'
     end 
 
     get '/hike/:id' do 
