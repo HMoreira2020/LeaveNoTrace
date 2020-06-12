@@ -1,14 +1,20 @@
-
-source "https://rubygems.org"
+source 'http://rubygems.org'
 
 gem 'sinatra'
-gem 'sqlite3'
-gem 'activerecord', '~> 6.0.0', :require => 'active_record'
-gem 'rake'
-gem 'pry'
+gem 'activerecord', '~> 4.2', '>= 4.2.6', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
-gem 'tux' 
+gem 'rake'
 gem 'require_all'
-gem 'shotgun'
-gem 'bcrypt'
+gem 'sqlite3', '~> 1.3.6'
 gem 'thin'
+gem 'shotgun'
+gem 'pry'
+gem 'bcrypt'
+gem 'tux'
+
+group :test do
+    gem 'rspec'
+    gem 'capybara'
+    gem 'rack-test'
+    gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
+end

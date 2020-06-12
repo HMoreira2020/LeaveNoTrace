@@ -16,6 +16,7 @@ class HikesController < ApplicationController
     post '/hikes' do 
         @hike = current_user.hikes.build(params)
         @hike.save 
+        @hikes = Hike.all
     end 
 
     get '/hike/:id' do 
