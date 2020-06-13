@@ -7,9 +7,9 @@ class SessionsController < ApplicationController
 
     post '/login' do 
     #   raise params.inspect
-      @user = User.find_by(params[:trailname]) 
-        if @user && user.authenticate(params[:password])
-            session[:user_id] = user.id 
+      @user = User.find_by(trailname: params[:trailname]) 
+        if @user && @user.authenticate(params[:password])
+            session[:user_id] = @user.id 
             redirect to '/hikes'
         else 
             #flash[:message] = "Invalid Login Info"

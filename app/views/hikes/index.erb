@@ -1,14 +1,15 @@
 Hike index has a list of all hikes with links to each hike show page and each user that created that hike
+<h1>LeaveNoTrace</h1>
+<h2>Welcome, <a href="/users/<%= current_user.trailname %>"><%= current_user.trailname %></a></h2>
 
-<%@hikes.each do |hike|%>
-    <%=hike.name%>
-    <%=hike.user.trailname%>
-    <%=hike.description%>
-    <%=hike.difficulty%>
-    <%=hike.rating%>
-    <%=hike.tips%>
-
-<%end%> 
+<h4>Hikes:</h4>
+<table>
+<%@hikes.each do |hike| %> 
+<ul>
+    <li><a href="/hikes/<%=hike.id%>"><%=hike.name%></a> - <a href="/users/<%=hike.user.slug%>"><%=hike.user.trailname%></a></li>
+</ul>
+<%end%>
+</table>
 
 <form action='/logout' method="get">
 <input type="submit" value="Log Out">

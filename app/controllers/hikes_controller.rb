@@ -21,6 +21,7 @@ class HikesController < ApplicationController
     end 
 
     get '/hike/:id' do 
+        binding.pry
         @hike = Hike.find_by(params[:id])
     end 
 

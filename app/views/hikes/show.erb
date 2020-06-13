@@ -1,2 +1,11 @@
 
 a hike show page has all the hike details and a link to the user that created it 
+
+<%@hikes.each do |hike|%>
+    <%=hike.name%>
+    <%=hike.description%>
+    <%=hike.difficulty%>
+    <%=hike.rating%>
+    <%=hike.tips%>
+
+<%end%> 
