@@ -24,7 +24,6 @@ class ApplicationController < Sinatra::Base
 
         def logout!
             session.clear
-            
         end 
 
 		def current_user

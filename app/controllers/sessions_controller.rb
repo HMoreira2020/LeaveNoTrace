@@ -2,7 +2,11 @@ class SessionsController < ApplicationController
 
 
     get '/login' do 
-        erb :'sessions/login'
+        if is_logged_in?
+            redirect to '/hikes'
+        else 
+            erb :'sessions/login'
+        end
     end 
 
     post '/login' do 
@@ -18,7 +22,7 @@ class SessionsController < ApplicationController
 
     get '/logout' do 
         if is_logged_in? 
-            session.clear
+            logout!
             redirect to '/login'
         else 
             redirect to '/'

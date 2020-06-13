@@ -1,34 +1,49 @@
 class HikesController < ApplicationController 
 
     get '/hikes' do 
-        # if is_logged_in?
+        if is_logged_in?
             @hikes = Hike.all
             erb :'hikes/index'
-        # else 
-        #     redirect to '/login'
-        # end
+        else 
+            redirect to '/login'
+        end
     end 
 
     get '/hikes/new' do
-        binding.pry 
-        erb :'hikes/new'
+        if is_logged_in? 
+            erb :'hikes/new'
+        else 
+            redirect '/login'
+        end
     end 
 
     post '/hikes' do 
-        @hike = current_user.hikes.build(params)
-        @hike.save 
-        @hikes = Hike.all
-        erb :'hikes/index'
+            @hike = current_user.hikes.build(params)
+            @hike.save 
+            @hikes = Hike.all
+            erb :'hikes/index'
     end 
 
     get '/hikes/:id' do 
-        @hike = Hike.find_by_id(params[:id])
-        erb :'hikes/show'
+        if is_logged_in? 
+            @hike = Hike.find_by_id(params[:id])
+            erb :'hikes/show'
+        else
+            redirect "/login"
+        end
     end 
 
     get '/hikes/:id/edit' do 
-        @hike = Hike.find_by_id(params[:id])
-        erb :'hikes/edit'
+        if is_logged_in?
+            @hike = Hike.find_by_id(params[:id])
+            if @hike.user == current_user 
+                erb :'hikes/edit'
+            else
+                redirect to '/hikes'
+            end 
+        else
+            redirect "/login"
+        end 
     end 
 
     patch '/hikes/:id/edit' do 
@@ -42,7 +57,6 @@ class HikesController < ApplicationController
     end 
 
     delete '/hikes/:id' do 
-        binding.pry
         @hike = Hike.find_by(params[:id])
         if @hike.user == current_user 
             @hike.destroy 
