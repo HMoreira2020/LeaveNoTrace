@@ -6,7 +6,6 @@ class SessionsController < ApplicationController
     end 
 
     post '/login' do 
-    #   raise params.inspect
       @user = User.find_by(trailname: params[:trailname]) 
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id 

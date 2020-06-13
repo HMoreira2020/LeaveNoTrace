@@ -26,12 +26,18 @@ class HikesController < ApplicationController
     end 
 
     get '/hikes/:id/edit' do 
-        @hike = Hike.find_by(params[:id])
-
+        @hike = Hike.find_by_id(params[:id])
+        erb :'hikes/edit'
     end 
 
     patch '/hikes/:id/edit' do 
-        @hike = Hike.find_by(params[:id])
+        if !params.values.any?{|param| param.empty?}
+            @hike = Hike.find_by(params[:id])
+            @hike.update(params[:hike])
+            redirect to "/hikes/#{@hike.id}"
+        else 
+            redirect "/hikes/#{@hike.id}/edit"
+        end
     end 
 
     delete '/hikes/:id' do 
