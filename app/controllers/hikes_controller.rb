@@ -2,6 +2,7 @@ class HikesController < ApplicationController
 
     get '/hikes' do 
         if is_logged_in?
+            current_user 
             @hikes = Hike.all
             erb :'hikes/index'
         else 
