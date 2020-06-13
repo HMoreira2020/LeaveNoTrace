@@ -42,5 +42,11 @@ class HikesController < ApplicationController
 
     delete '/hikes/:id' do 
         @hike = Hike.find_by(params[:id])
+        if @hike.user == current_user 
+            @hike.destroy 
+            redirect to '/hikes'
+        else 
+            redirect to "/hikes/#{@hike.id}/edit"
+        end
     end 
 end 
