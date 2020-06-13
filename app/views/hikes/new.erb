@@ -1,18 +1,27 @@
 <h1>Welcome, <a href="/users/<%= current_user.trailname %>"><%= current_user.trailname %></a></h1>
-<h2>Log a Hike</h2>
+<h2>Create a New Hike</h2>
 
 
   <form action='/hikes' method="post">
+    Name:
+    <input type="text" name="name" id="name"><br>
+    Location: 
+    <input type="text" name="location" id="location"><br>
     Description:
     <input type="text" name="description" id="description"><br>
-    Difficulty:
+    Difficulty: Easy, Moderate or Difficult?
     <input type="text" name="difficulty" id="difficulty"><br>
-    Rating:
+    Rating: Enter 1-5 
     <input type="text" name="rating" id="rating"><br>
-    Tips:
+    Features: Ex, water, views, canyon 
+    <input type="text" name="features" id="features"><br>
+    Length: In miles 
+    <input type="text" name="length" id="length"><br>
+    Tips: Let your fellow hikers know what to expect. 
     <input type="text" name="tips" id="tips"><br>
+
     
-    <input type="submit" id="submit">Log Hike</input>
+    <input type="submit" value="Log Hike"></input>
 
   </form>
 
