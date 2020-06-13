@@ -1,11 +1,17 @@
 
 a hike show page has all the hike details and a link to the user that created it 
+<h1>LeaveNoTrace</h1>
+<h2><%=@hike.name%></h2>
+<h4>See more hikes by <a href="/users/<%=@hike.user.slug%>"><%=@hike.user.trailname%></a></h4
+<table>
+<tr>
+    <td>Location: <%=@hike.location%></td><br>
+    <td>Description: <%=@hike.description%></td><br>
+    <td>Difficulty Level: <%=@hike.difficulty%></td><br>
+    <td>Length: <%=@hike.length%></td><br>
+    <td>Rating: <%=@hike.rating%></td><br>
+    <td>Tips: <%=@hike.tips%></td><br>
+    <td>Features: <%=@hike.features%></td>
+</tr>
+</table>
 
-<%@hikes.each do |hike|%>
-    <%=hike.name%>
-    <%=hike.description%>
-    <%=hike.difficulty%>
-    <%=hike.rating%>
-    <%=hike.tips%>
-
-<%end%> 

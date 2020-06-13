@@ -20,9 +20,9 @@ class HikesController < ApplicationController
         erb :'hikes/index'
     end 
 
-    get '/hike/:id' do 
-        binding.pry
-        @hike = Hike.find_by(params[:id])
+    get '/hikes/:id' do 
+        @hike = Hike.find_by_id(params[:id])
+        erb :'hikes/show'
     end 
 
     get '/hikes/:id/edit' do 
