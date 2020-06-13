@@ -15,6 +15,14 @@ a hike show page has all the hike details and a link to the user that created it
 </tr>
 </table>
 
+<form action="/hikes" method="get">
+<input type="submit" id="submit" value="All Hikes">
+</form>
+
+<form action="/hikes/<%=@hike.id%>/edit" method="get">
+<input type="submit" id="submit" value="Edit Hike">
+</form>
+
 <form action="/hikes/<%=@hike.id%>" method="post">
 <input id="hidden" type="hidden" name="_method" value="delete">
 <input type="submit" id="submit" value="Delete Hike">

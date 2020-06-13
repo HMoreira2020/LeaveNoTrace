@@ -9,7 +9,8 @@ class HikesController < ApplicationController
         # end
     end 
 
-    get '/hikes/new' do 
+    get '/hikes/new' do
+        binding.pry 
         erb :'hikes/new'
     end 
 
@@ -41,12 +42,13 @@ class HikesController < ApplicationController
     end 
 
     delete '/hikes/:id' do 
+        binding.pry
         @hike = Hike.find_by(params[:id])
         if @hike.user == current_user 
             @hike.destroy 
             redirect to '/hikes'
         else 
-            redirect to "/hikes/#{@hike.id}/edit"
+            redirect to "/hikes/#{@hike.id}"
         end
     end 
 end 
