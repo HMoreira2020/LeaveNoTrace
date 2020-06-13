@@ -1,1 +1,10 @@
-list of all users with links to their show pages
+<h1>LeaveNoTrace</h1>
+<h2>Hikers:</h2>
+
+<table>
+<%@users.each do |user| %> 
+<tr>
+    <td><a href="/users/<%=user.slug%>"><%=user.trailname%></a> </td>
+</tr>
+<%end%>
+</table>

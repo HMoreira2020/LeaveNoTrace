@@ -7,6 +7,6 @@ class User < ActiveRecord::Base
       end 
     
       def slug
-        self.username.parameterize
+        self.trailname.parameterize
       end 
 end
