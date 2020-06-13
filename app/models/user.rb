@@ -1,9 +1,6 @@
 class User < ActiveRecord::Base 
     has_many :hikes
     has_secure_password
-    validates :email, presence: true
-    validates :trailname, presence: true
-    validates :password, presence: true
 
     def self.find_by_slug(slug)
         self.all.find {|obj| obj.slug == slug}
