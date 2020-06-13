@@ -1,7 +1,7 @@
 class UsersController < ApplicationController 
 
     get '/signup' do 
-        erb :'users/new_user'
+        erb :'users/new'
     end 
 
     post '/signup' do 
@@ -18,10 +18,10 @@ class UsersController < ApplicationController
     get '/users/:slug' do 
         @user = User.find_by(username: params[:slug])
         @hikes = @user.hikes
-        erb :'/users/show_user'
+        erb :'/users/show'
     end 
 
     get '/users' do 
-        erb :'users/users_index'
+        erb :'users/index'
     end 
 end 
