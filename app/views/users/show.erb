@@ -1,1 +1,12 @@
-a users show pages shows all their hikes with links to each hike 
+a users show page shows all their hikes with links to each hike 
+<h1>LeaveNoTrace</h1>
+
+<h2>Hiker: <%=@user.trailname%></h2>
+<h3>Completed Hikes</h3>
+<table>
+<%@user.hikes.each do |hike| %> 
+<ul>
+    <li><a href="/hikes/<%=hike.id%>"><%=hike.name%></a> </li>
+</ul>
+<%end%>
+</table>
