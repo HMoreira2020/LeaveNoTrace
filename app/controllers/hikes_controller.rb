@@ -14,7 +14,6 @@ class HikesController < ApplicationController
     end 
 
     post '/hikes' do 
-        binding.pry
         @hike = current_user.hikes.build(params)
         @hike.save 
         @hikes = Hike.all
