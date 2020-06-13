@@ -53,7 +53,6 @@ class HikesController < ApplicationController
             @hike.update(params[:hike])
             redirect to "/hikes/#{@hike.id}"
         else 
-            @error = "You must fill in all fields"
             redirect "/hikes/#{@hike.id}/edit"
         end
     end 

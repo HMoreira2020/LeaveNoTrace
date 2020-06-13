@@ -15,7 +15,6 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id 
             redirect to '/hikes'
         else 
-            @error = "Invalid Login Info"
             redirect to '/login'
         end 
     end 
