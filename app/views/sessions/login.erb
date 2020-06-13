@@ -1,5 +1,12 @@
 
 <h1>LeaveNoTrace</h1>
+
+<% if !@errors.blank? %>
+  <p class="errors">
+    <%= "#{@errors}" %>
+  </p>
+<% end %>
+
 <form action="/login" method="post">
   <div class="imgcontainer">
     <img src="https://i.pinimg.com/564x/28/d5/18/28d518485080567d0753622ff314a8da.jpg" alt="Sedona" class="hikes">

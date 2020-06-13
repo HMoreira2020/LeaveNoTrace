@@ -15,15 +15,15 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id 
             redirect to '/hikes'
         else 
-            #flash[:message] = "Invalid Login Info"
+            @error = "Invalid Login Info"
             redirect to '/login'
         end 
     end 
 
     get '/logout' do 
         if is_logged_in? 
-            logout!
-            redirect to '/login'
+            session.clear
+            redirect to '/'
         else 
             redirect to '/'
         end
