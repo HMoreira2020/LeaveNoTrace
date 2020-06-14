@@ -2,27 +2,28 @@
 <h2>Welcome, <a href="/users/<%= current_user.trailname %>"><%= current_user.trailname %></a></h2>
 
 
-<h4>Create a New Hike</h4>
+<h4>Post a New Hike</h4>
+<%= @hike.errors.full_messages.to_sentence if @hike && @hike.errors.any? %><br>
   <form action='/hikes' method="post">
     Name: <br>
-    <input type="text" name="name" id="name"required><br>
+    <input type="text" name="name" id="name"><br>
     Location: <br>
-    <input type="text" name="location" id="location"required><br>
+    <input type="text" name="location" id="location"><br>
     Description: <br>
-    <input type="text" name="description" id="description"required><br>
+    <input type="text" name="description" id="description"><br>
     Difficulty: Easy, Moderate or Difficult? <br>
-    <input type="text" name="difficulty" id="difficulty"required><br>
+    <input type="text" name="difficulty" id="difficulty"><br>
     Rating: Enter 1-5 <br>
-    <input type="text" name="rating" id="rating"required><br>
-    Features: ex, "water, views, canyon" <br>
-    <input type="text" name="features" id="features"required><br>
+    <input type="text" name="rating" id="rating"><br>
+    Features: ex "water, views, canyon" <br>
+    <input type="text" name="features" id="features"><br>
     Length: In miles <br>
-    <input type="text" name="length" id="length"required><br>
+    <input type="text" name="length" id="length"><br>
     Tips: Let your fellow hikers know what to expect. <br>
-    <input type="text" name="tips" id="tips"required><br>
+    <input type="text" name="tips" id="tips"><br><br>
 
     
-    <input type="submit" value="Log Hike"></input>
+    <input type="submit" value="Post Hike"></input>
 
   </form>
 
