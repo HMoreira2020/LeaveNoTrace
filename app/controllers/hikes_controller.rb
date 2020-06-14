@@ -71,6 +71,7 @@ class HikesController < ApplicationController
         @hike = Hike.find_by(params[:id])
         if @hike.user == current_user 
             @hike.destroy 
+            flash[:notice] = "Hike Successfully Deleted"
             redirect to '/hikes'
         else 
             flash[:warning] = "You are Not Authorized to Delete this Hike"
