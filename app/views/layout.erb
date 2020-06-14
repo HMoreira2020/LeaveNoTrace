@@ -3,16 +3,23 @@
 <head>
 	<title>LeaveNoTrace</title>
 </head>
+
 <%if is_logged_in?%>
 	<h4>You are logged in as <a href="/users/<%=current_user.slug%>"><%= current_user.trailname %></a></h4>
 <%end%>
 <body>
-<% flash.keys.each do |type| %>
+	<% flash.keys.each do |type| %>
 	<div data-alert class="flash <%= type %> alert-box radius">
 	  <%= flash[type] %>
 	  <a href="#" class="close">&times;</a>
 	</div>
   <% end %>
+
 	<%= yield %>
+	
+	<footer class="branding">
+	<small>&copy; 2020 <strong>LeaveNoTrace</strong></small>
+  	</footer>
+
 </body>
 </html>
