@@ -27,7 +27,7 @@ class HikesController < ApplicationController
 
     get '/hikes/:id' do 
         if is_logged_in? 
-            @hike = Hike.find_by_id(params[:id])
+            @hike = Hike.find_by(params[:id])
             erb :'hikes/show'
         else
             redirect "/login"
@@ -36,7 +36,7 @@ class HikesController < ApplicationController
 
     get '/hikes/:id/edit' do 
         if is_logged_in?
-            @hike = Hike.find_by_id(params[:id])
+            @hike = Hike.find_by(params[:id])
             if @hike.user == current_user 
                 erb :'hikes/edit'
             else
@@ -50,9 +50,14 @@ class HikesController < ApplicationController
     patch '/hikes/:id/edit' do 
         if !params.values.any?{|param| param.empty?}
             @hike = Hike.find_by(params[:id])
-            @hike.update(params[:hike])
-            redirect to "/hikes/#{@hike.id}"
+            if @hike.user == current_user 
+                @hike.update(params[:hike])
+                redirect to "/hikes/#{@hike.id}"
+            else 
+                redirect to '/hikes'
+            end
         else 
+            #flash[:message] = "All fields are required"
             redirect "/hikes/#{@hike.id}/edit"
         end
     end 

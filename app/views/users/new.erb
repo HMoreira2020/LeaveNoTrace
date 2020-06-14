@@ -1,17 +1,21 @@
+
+
 <form action="/signup" method="POST">
   <div class="container">
     <h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
-
+    
+    <%= @user.errors.full_messages.to_sentence if @user && @user.errors.any? %><br><br> 
+    
     <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required><br>
+    <input type="text" placeholder="Enter Email" name="email"><br>
 
     <label for="trailname"><b>Trailname</b></label>
-    <input type="text" placeholder="Pick a trailname" name="trailname" required> Trailname: A pseudonym that a hiker takes on as his or her trail identity. <br>
+    <input type="text" placeholder="Pick a trailname" name="trailname"> Trailname: A pseudonym that a hiker takes on as his or her trail identity. <br>
 
     <label for="password"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" required><br>
+    <input type="password" placeholder="Enter Password" name="password"><br>
 
 
     <div class="submit">

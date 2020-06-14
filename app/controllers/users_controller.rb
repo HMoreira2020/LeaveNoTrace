@@ -9,13 +9,13 @@ class UsersController < ApplicationController
     end 
 
     post '/signup' do 
-        if params.values.any?{|param| param.empty?}
-            redirect to '/signup'
-        else
-            @user = User.create(params)
+        @user = User.new(params)
+        if @user.save
             session[:user_id] = @user.id 
             redirect to '/login'
-        end
+        else 
+            erb :'users/new'
+        end 
     end 
 
     get '/users/:slug' do
