@@ -1,5 +1,5 @@
 <h1>LeaveNoTrace</h1>
-<h2>Welcome, <a href="/users/<%=current_user.slug %>"><%= current_user.trailname %></a></h2>
+
 
 <h4>Hikes:</h4>
 <table>
@@ -10,9 +10,9 @@
 <%end%>
 </table>
 
+<form action='/hikes/new' method="get">
+<input type="submit" value="Post a New Hike">
+</form>
 <form action='/logout' method="get">
 <input type="submit" value="Log Out">
 </form>
-<form action='/hikes/new' method="get">
-<input type="submit" value="Post a Hike">
-</form><br><br>

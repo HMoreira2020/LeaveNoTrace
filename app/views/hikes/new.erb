@@ -1,6 +1,4 @@
 <h1>LeaveNoTrace</h1>
-<h2>Welcome, <a href="/users/<%= current_user.trailname %>"><%= current_user.trailname %></a></h2>
-
 
 <h4>Post a New Hike</h4>
 <%= @hike.errors.full_messages.to_sentence if @hike && @hike.errors.any? %><br>

@@ -1,6 +1,5 @@
 
 <h1>LeaveNoTrace</h1>
-<h2>You are logged in as <a href="/users/<%= current_user.trailname %>"><%= current_user.trailname %></a></h2>
 
 
 <h3><a href="/hikes/<%=@hike.id%>"><%=@hike.name%></a></h3>
@@ -8,21 +7,21 @@
   <form action='/hikes/<%=@hike.id%>/edit' method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
   Name: <br>
-  <input type="text" name="hike[name]" value="<%=@hike.name%>" required><br>
+  <input type="text" name="hike[name]" value="<%=@hike.name%>"><br>
   Location: <br>
-  <input type="text" name="hike[location]" value="<%=@hike.location%>" required><br>
+  <input type="text" name="hike[location]" value="<%=@hike.location%>"><br>
   Description: <br>
-  <input type="text" name="hike[description]" value="<%=@hike.description%>" required><br>
+  <input type="text" name="hike[description]" value="<%=@hike.description%>"><br>
   Difficulty: Easy, Moderate or Difficult? <br>
-  <input type="text" name="hike[difficulty]" value="<%=@hike.difficulty%>" required><br>
+  <input type="text" name="hike[difficulty]" value="<%=@hike.difficulty%>"><br>
   Rating: Enter 1-5 <br>
-  <input type="text" name="hike[rating]" value="<%=@hike.rating%>" required><br>
+  <input type="text" name="hike[rating]" value="<%=@hike.rating%>"><br>
   Features: ex, "water, views, canyon" <br>
-  <input type="text" name="hike[features]" value="<%=@hike.features%>" required><br>
+  <input type="text" name="hike[features]" value="<%=@hike.features%>"><br>
   Length: In miles <br>
-  <input type="text" name="hike[length]" value="<%=@hike.length%>" required><br>
+  <input type="text" name="hike[length]" value="<%=@hike.length%>"><br>
   Tips: Let your fellow hikers know what to expect. <br>
-  <input type="text" name="hike[tips]" value="<%=@hike.tips%>" required><br><br>
+  <input type="text" name="hike[tips]" value="<%=@hike.tips%>"><br><br>
   <input type="submit" value="Update Hike">
   </form>
 
