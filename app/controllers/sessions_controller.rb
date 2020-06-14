@@ -13,7 +13,6 @@ class SessionsController < ApplicationController
       @user = User.find_by(trailname: params[:trailname]) 
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id 
-            flash[:notice] = "You are Logged in as #{@user.trailname}!"
             redirect to '/hikes'
         else 
             flash[:warning] = "Invalid trailname or password"
