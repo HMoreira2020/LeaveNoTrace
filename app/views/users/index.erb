@@ -7,4 +7,11 @@
     <td><a href="/users/<%=user.slug%>"><%=user.trailname%></a> </td>
 </tr>
 <%end%>
-</table>
+</table><br><br>
+
+<form action='/hikes/new' method="get">
+<input type="submit" value="Post a New Hike">
+</form>
+<form action='/logout' method="get">
+<input type="submit" value="Log Out">
+</form>

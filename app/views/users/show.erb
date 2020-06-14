@@ -1,13 +1,17 @@
 
 <h1>LeaveNoTrace</h1>
 
-<h2>Hiker: <%=@user.trailname%></h2>
-<h3>Completed Hikes</h3>
+<h2><%=@user.trailname%>'s Hikes</h2>
+
 <table>
-<%@user.hikes.each do |hike| %> 
-<ul>
-    <li><a href="/hikes/<%=hike.id%>"><%=hike.name%></a> </li>
-</ul>
+<%if @user.hikes.empty?%>
+    <p>This hiker has no hikes</p>
+<%else%>
+    <%@user.hikes.each do |hike| %> 
+    <ul>
+        <li><a href="/hikes/<%=hike.id%>"><%=hike.name%></a> </li>
+    </ul>
+    <%end%>
 <%end%>
 </table>
 
@@ -16,7 +20,7 @@
 </form>
 <form action='/hikes/new' method="get">
 <input type="submit" value="Post a New Hike">
-</form><br><br>
+</form>
 <form action='/logout' method="get">
 <input type="submit" value="Log Out">
 </form>
