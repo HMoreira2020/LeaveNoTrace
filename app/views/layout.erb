@@ -7,6 +7,7 @@
 <%if is_logged_in?%>
 	<h4>You are logged in as <a href="/users/<%=current_user.slug%>"><%= current_user.trailname %></a></h4>
 <%end%>
+<h1>LeaveNoTrace</h1>
 <body>
 	<% flash.keys.each do |type| %>
 	<div data-alert class="flash <%= type %> alert-box radius">
@@ -16,7 +17,7 @@
   <% end %>
 
 	<%= yield %>
-	
+
 	<footer class="branding">
 	<small>&copy; 2020 <strong>LeaveNoTrace</strong></small>
   	</footer>
