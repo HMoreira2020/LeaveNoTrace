@@ -8,18 +8,24 @@
 	<h4>You are logged in as <a href="/users/<%=current_user.slug%>"><%= current_user.trailname %></a></h4>
 <%end%>
 <h1>LeaveNoTrace</h1>
+<div class="imgcontainer">
+    <img src="https://i.pinimg.com/564x/28/d5/18/28d518485080567d0753622ff314a8da.jpg" alt="Sedona" class="hikes">
+  </div>
 <body>
+<p>
 	<% flash.keys.each do |type| %>
 	<div data-alert class="flash <%= type %> alert-box radius">
-	  <%= flash[type] %>
+	  <strong style="color: red;"><%= flash[type] %></strong>
 	  <a href="#" class="close">&times;</a>
 	</div>
   <% end %>
+</p>
+
 
 	<%= yield %>
 
 	<footer class="branding">
-	<small>&copy; 2020 <strong>LeaveNoTrace</strong></small>
+	<small>&copy; 2020 <strong>LeaveNoTrace, Inc.</strong></small>
   	</footer>
 
 </body>

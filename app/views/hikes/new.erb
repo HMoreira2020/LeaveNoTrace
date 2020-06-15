@@ -1,7 +1,7 @@
 
 
 <h3>Post a New Hike</h3>
-<%= @hike.errors.full_messages.to_sentence if @hike && @hike.errors.any? %><br>
+<strong style="color: red;"><%= @hike.errors.full_messages.to_sentence if @hike && @hike.errors.any? %></strong><br>
   <form action='/hikes' method="post">
     Name: <br>
     <input type="text" name="name" id="name"><br>
