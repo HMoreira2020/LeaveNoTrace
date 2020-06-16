@@ -19,11 +19,12 @@ class HikesController < ApplicationController
     end 
 
     post '/hikes' do 
-        hike = current_user.hikes.build(params)
-        if hike.save 
+        @hike = current_user.hikes.build(params)
+        if @hike.save 
             @hikes = Hike.all
             erb :'hikes/index'
         else 
+            flash[:message] = "All fields required"
             erb :'hikes/new'
         end
     end 
