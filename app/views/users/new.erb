@@ -1,20 +1,23 @@
 
 
 <form action="/signup" method="POST">
+<strong style="color: red;"><%= @user.errors.full_messages.to_sentence if @user && @user.errors.any? %></strong><br>
     <h2>Sign Up</h2>
     <p>Please fill in this form to create an account.</p>
-    <strong style="color: red;"><%= @user.errors.full_messages.to_sentence if @user && @user.errors.any? %></strong><br>
-    
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email"><br>
-
-    <label for="trailname"><b>Trailname</b></label>
-    <input type="text" placeholder="Pick a trailname" name="trailname"> Trailname: A pseudonym that a hiker takes on as his or her trail identity. <br>
-
-    <label for="password"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password"><br>
-
-
+    <table>
+    <tr>
+    <td align="left"><label for="email"><b>Email</b></label>
+    <td align="left"><input type="text" placeholder="Enter Email" name="email"><br>
+    </tr>
+    <tr>
+    <td align="right"><label for="trailname"><b>Trailname</b></label>
+    <td align="left"><input type="text" placeholder="Pick a trailname" name="trailname"><br>
+    </tr>
+    <tr>
+    <td align="right"><label for="password"><b>Password</b></label>
+    <td align="left"><input type="password" placeholder="Enter Password" name="password"><br>
+    </tr>
+    </table>
     <div class="submit">
       <button type="submit" class="signupbtn">Sign Up</button>
     </div>
