@@ -39,7 +39,7 @@ class HikesController < ApplicationController
 
     get '/hikes/:id/edit' do 
         if is_logged_in?
-            @hike = Hike.find_by(params[:id])
+            @hike = current_user.hikes.find_by(params[:id])
             if @hike.user == current_user 
                 erb :'hikes/edit'
             else
@@ -52,30 +52,30 @@ class HikesController < ApplicationController
     end 
 
     patch '/hikes/:id/edit' do 
-        @hike = Hike.find_by(params[:id])
+        hike = current_user.hikes.find_by(params[:id])
         if !params[:hike].values.any?{|param| param.empty?}
-            if @hike.user == current_user 
-                @hike.update(params[:hike])
-                redirect to "/hikes/#{@hike.id}"
+            if hike.user == current_user 
+                hike.update(params[:hike])
+                redirect to "/hikes/#{hike.id}"
             else 
                 flash[:warning] = "You are Not Authorized to Edit this Hike"
-                redirect to "/hikes/#{@hike.id}"
+                redirect to "/hikes/#{hike.id}"
             end
         else 
             flash[:message] = "All fields are required"
-            redirect "/hikes/#{@hike.id}/edit"
+            redirect "/hikes/#{hike.id}/edit"
         end
     end 
 
     delete '/hikes/:id' do 
-        hike = Hike.find_by(params[:id])
+        hike = current_user.hikes.find_by(params[:id])
         if hike.user == current_user 
             hike.destroy 
             flash[:notice] = "Hike Successfully Deleted"
             redirect to '/hikes'
         else 
             flash[:warning] = "You are Not Authorized to Delete this Hike"
-            redirect to "/hikes/#{@hike.id}"
+            redirect to "/hikes/#{hike.id}"
         end
     end 
 end 
