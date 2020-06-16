@@ -34,14 +34,6 @@ class ApplicationController < Sinatra::Base
 			!!current_user
 		end
 
-        def login 
-            session[:email] == email 
-        end 
-
-        def logout!
-            session.clear
-        end 
-
 		def current_user
 			User.find(session[:user_id]) if session[:user_id]
 		end

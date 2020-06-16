@@ -19,8 +19,8 @@ class HikesController < ApplicationController
     end 
 
     post '/hikes' do 
-        @hike = current_user.hikes.build(params)
-        if @hike.save 
+        hike = current_user.hikes.build(params)
+        if hike.save 
             @hikes = Hike.all
             erb :'hikes/index'
         else 
@@ -30,7 +30,7 @@ class HikesController < ApplicationController
 
     get '/hikes/:id' do 
         if is_logged_in? 
-            @hike = Hike.find_by(params[:id])
+            @hike = current_user.hikes.find_by(params[:id])
             erb :'hikes/show'
         else
             redirect "/login"
@@ -68,9 +68,9 @@ class HikesController < ApplicationController
     end 
 
     delete '/hikes/:id' do 
-        @hike = Hike.find_by(params[:id])
-        if @hike.user == current_user 
-            @hike.destroy 
+        hike = Hike.find_by(params[:id])
+        if hike.user == current_user 
+            hike.destroy 
             flash[:notice] = "Hike Successfully Deleted"
             redirect to '/hikes'
         else 

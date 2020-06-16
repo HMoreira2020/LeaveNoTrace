@@ -7,6 +7,7 @@
     <p>This hiker has no hikes</p>
 <%else%>
     <%@user.hikes.each do |hike| %> 
+        <%=binding.pry%>
     <tr>
         <td><a href="/hikes/<%=hike.id%>"><%=hike.name%></a> </td>
     </tr>

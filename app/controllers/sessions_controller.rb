@@ -10,9 +10,9 @@ class SessionsController < ApplicationController
     end 
 
     post '/login' do 
-      @user = User.find_by(trailname: params[:trailname]) 
-        if @user && @user.authenticate(params[:password])
-            session[:user_id] = @user.id 
+      user = User.find_by(trailname: params[:trailname]) 
+        if user && user.authenticate(params[:password])
+            session[:user_id] = user.id 
             redirect to '/home'
         else 
             redirect to '/login'
@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
 
     get '/logout' do 
         if is_logged_in? 
-            logout!
+            session.clear
             redirect to '/'
         else 
             redirect to '/'
