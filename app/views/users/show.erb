@@ -7,19 +7,10 @@
     <p>This hiker has no hikes</p>
 <%else%>
     <%@user.hikes.each do |hike| %> 
-    <ul>
-        <li><a href="/hikes/<%=hike.id%>"><%=hike.name%></a> </li>
-    </ul>
+    <tr>
+        <td><a href="/hikes/<%=hike.id%>"><%=hike.name%></a> </td>
+    </tr>
     <%end%>
 <%end%>
 </table>
 
-<form action="/hikes" method="get">
-<input type="submit" id="submit" value="All Hikes">
-</form>
-<form action='/hikes/new' method="get">
-<input type="submit" value="Post a New Hike">
-</form>
-<form action='/logout' method="get">
-<input type="submit" value="Log Out">
-</form>

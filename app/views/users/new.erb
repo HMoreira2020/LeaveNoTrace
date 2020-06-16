@@ -1,10 +1,9 @@
 
 
 <form action="/signup" method="POST">
-  <div class="container">
     <h2>Sign Up</h2>
     <p>Please fill in this form to create an account.</p>
-    <strong style="color: red;"><%= @user.errors.full_messages.to_sentence if @user && @user.errors.any? %></strong>
+    <strong style="color: red;"><%= @user.errors.full_messages.to_sentence if @user && @user.errors.any? %></strong><br>
     <label for="email"><b>Email</b></label>
     <input type="text" placeholder="Enter Email" name="email"><br>
 
@@ -18,5 +17,4 @@
     <div class="submit">
       <button type="submit" class="signupbtn">Sign Up</button>
     </div>
-  </div>
 </form>

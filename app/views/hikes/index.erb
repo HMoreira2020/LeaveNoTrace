@@ -2,9 +2,9 @@
 <h4>Hikes:</h4>
 <table>
 <%@hikes.each do |hike| %> 
-<ul>
-    <li><a href="/hikes/<%=hike.id%>"><%=hike.name%></a> - <a href="/users/<%=hike.user.slug%>"><%=hike.user.trailname%></a></li>
-</ul>
+<tr>
+    <td><a href="/hikes/<%=hike.id%>"><%=hike.name%></a> - <a href="/users/<%=hike.user.slug%>"><%=hike.user.trailname%></a></td>
+</tr>
 <%end%>
 </table>
 
