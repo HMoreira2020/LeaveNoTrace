@@ -2,7 +2,7 @@
 
 <form action="/signup" method="POST">
 <strong style="color: red;"><%= @user.errors.full_messages.to_sentence if @user && @user.errors.any? %></strong><br>
-    <h2>Sign Up</h2>
+    <h4>Sign Up</h4>
     <p>Please fill in this form to create an account.</p>
     <table>
     <tr>
