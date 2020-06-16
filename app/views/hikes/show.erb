@@ -19,7 +19,7 @@
 <form action="/hikes/<%=@hike.id%>/edit" method="get">
 <input type="submit" id="submit" value="Edit Hike">
 </form>
-<form action="/hikes/<%=@hike.id%>" method="post">
+<form onsubmit="return confirm('Are you sure you want to delete this hike?')" action="/hikes/<%=@hike.id%>" method="post">
 <input id="hidden" type="hidden" name="_method" value="delete">
 <input type="submit" id="submit" value="Delete Hike">
 </form>
