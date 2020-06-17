@@ -15,6 +15,7 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id 
             redirect to '/home'
         else 
+            flash[:warning] = "Invalid trailname or password"
             redirect to '/login'
         end 
     end 
