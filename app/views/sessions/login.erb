@@ -2,6 +2,7 @@
 <form action="/login" method="post">
 
   <h2>Login</h2>
+  <strong style="color: red;"><%= @user.errors.full_messages.uniq.to_sentence if @user && @user.errors.any? %></strong><br>
     <label for="trailname"><b>Trailname</b></label>
     <input type="text" placeholder="Enter Trailname" name="trailname" required>
 

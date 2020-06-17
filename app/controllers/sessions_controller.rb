@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 
     post '/login' do 
       user = User.find_by(trailname: params[:trailname]) 
-        if user && user.authenticate(params[:password])
+        if user.valid? && user.authenticate(params[:password])
             session[:user_id] = user.id 
             redirect to '/home'
         else 
