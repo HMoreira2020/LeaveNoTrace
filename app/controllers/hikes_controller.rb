@@ -25,7 +25,7 @@ class HikesController < ApplicationController
             erb :'hikes/index'
         else 
             flash[:message] = "All fields required"
-            erb :'hikes/new'
+            redirect 'hikes/new'
         end
     end 
 
