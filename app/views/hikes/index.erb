@@ -1,10 +1,13 @@
 
 <h4>Hikes:</h4>
-<p>Explore hikes posted by other users to find your next adventure.</p>
+<p>Check out these hikes!</p>
 <table>
+<tr>
+    <th>Hikes</th?
+</tr>
 <%@hikes.each do |hike| %> 
 <tr>
-    <td><a href="/hikes/<%=hike.id%>"><%=hike.name%></a> - <a href="/users/<%=hike.user.slug%>"><%=hike.user.trailname%></a></td>
+    <td><a href="/hikes/<%=hike.id%>"><%=hike.name%></a> - posted by <a href="/users/<%=hike.user.slug%>"><%=hike.user.trailname%></a></td>
 </tr>
 <%end%>
 </table>
