@@ -6,14 +6,14 @@ License: https://opensource.org/licenses/MIT
 
 To use LeaveNoTrace: 
 
-Go to https://github.com/HMoreira2020/LeaveNoTrace
-Click Clone or Download
-Click the clipboard icon next to the link to copy
+Go to https://github.com/HMoreira2020/LeaveNoTrace<br>
+Click Clone or Download<br>
+Click the clipboard icon next to the link to copy<br>
 In your Command Line or Terminal, type 'git clone' and paste the URL
-Run 'bundle install'
-Run 'rake db:migrate'
-Run 'shotgun'
-    The terminal will display a line 'Listening on 127.0.0.1:1200'
-Open your browser and go to localhost:1200 <-- the last 4 digits from the line above as they are displayed for you. 
+Run 'bundle install'<br>
+Run 'rake db:migrate'<br>
+Run 'shotgun'<br>
+    The terminal will display a line 'Listening on 127.0.0.1:1200'<br>
+Open your browser and go to localhost:1200 <-- the last 4 digits from the line above as they are displayed for you.
 
 
