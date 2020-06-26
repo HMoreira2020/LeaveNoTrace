@@ -12,7 +12,7 @@ class UsersController < ApplicationController
         @user = User.new(params)
         if @user.save
             session[:user_id] = @user.id 
-            redirect to '/login'
+            redirect to '/home'
         else 
             erb :'users/new'
         end 
@@ -25,11 +25,8 @@ class UsersController < ApplicationController
     end 
 
     get '/users' do 
-        if is_logged_in?
-            @users = User.all 
-            erb :'users/index'
-        else 
-            redirect to '/login'
-        end
+        redirect_if_not_logged_in 
+        @users = User.all 
+        erb :'users/index'
     end 
 end 
